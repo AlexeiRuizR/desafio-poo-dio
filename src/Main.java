@@ -1,57 +1,63 @@
-import br.com.dio.desafio.dominio.*;
+import com.dio.desafio.dominio.Gerente;
+import com.dio.desafio.dominio.Lojas;
+import com.dio.desafio.dominio.Vendedor;
 
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Curso curso1 = new Curso();
-        curso1.setTitulo("Curso Java");
-        curso1.setDescricao("Descrição curso java");
-        curso1.setCargaHoraria(8);
 
-        Curso curso2 = new Curso();
-        curso2.setTitulo("Curso Js");
-        curso2.setDescricao("Descrição curso js");
-        curso2.setCargaHoraria(4);
+        Vendedor vendedor1 = new Vendedor();
+        vendedor1.setNome("Alexander");
+        vendedor1.setTelefone("+5581585640125");
+        vendedor1.setHorasTrabalhadas(192);
+        vendedor1.setComision(1.20);
 
-        //Conteudo conteudo = new Curso();
-        //Conteudo conteudo1 = new Mentoria();
+        Vendedor vendedor2 = new Vendedor();
+        vendedor2.setNome("Felix");
+        vendedor2.setTelefone("+5581424785689");
+        vendedor2.setHorasTrabalhadas(190.8);
+        vendedor2.setComision(1.15);
 
-        Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("Mentoria de java");
-        mentoria.setDescricao("Descrição mentoria java");
-        mentoria.setData(LocalDate.now());
+        Vendedor vendedor3 = new Vendedor();
+        vendedor3.setNome("Arletis");
+        vendedor3.setTelefone("+5581554785136");
+        vendedor3.setHorasTrabalhadas(186);
+        vendedor3.setComision(1.17);
 
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
+        Vendedor vendedor4 = new Vendedor();
+        vendedor4.setNome("Maria");
+        vendedor4.setTelefone("+5581989475237");
+        vendedor4.setHorasTrabalhadas(193);
+        vendedor4.setComision(1.25);
 
-        Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Bootcamp Java Developer");
-        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
-        bootcamp.getConteudos().add(curso1);
-        bootcamp.getConteudos().add(curso2);
-        bootcamp.getConteudos().add(mentoria);
+        Gerente gerente1 = new Gerente();
+        gerente1.setNome("Alvaro");
+        gerente1.setTelefone("+5581999254574");
+        gerente1.setHorasTrabalhadas(205);
+        gerente1.setIndiceArea(242.25);
 
-        Devs devCamila = new Devs();
-        devCamila.setNome("Camila");
-        devCamila.inscreverBottcamp(bootcamp);
-        System.out.println("Conteudos inscritos de Camila " + devCamila.getConteudosInscritos());
-        devCamila.progredir();
-        System.out.println("Conteudos inscritos de Camila " + devCamila.getConteudosInscritos());
-        System.out.println("Conteudos concluidos de Camila " + devCamila.getConteudosConcluidos());
-        System.out.println("XP de Camila " + devCamila.calcularTotalXp());
+        Gerente gerente2 = new Gerente();
+        gerente2.setNome("Andres");
+        gerente2.setTelefone("+5581933150027");
+        gerente2.setHorasTrabalhadas(196);
+        gerente2.setIndiceArea(250);
 
+        Lojas loja1 = new Lojas();
+        loja1.setNome("Urbano");
+        loja1.getPessoalGerencia().add(gerente1);
+        loja1.getPessoalVenda().add(vendedor1);
+        loja1.getPessoalVenda().add(vendedor2);
 
-        Devs devJoao = new Devs();
-        devJoao.setNome("João");
-        devJoao.inscreverBottcamp(bootcamp);
-        System.out.println("Conteudos inscritos de João " + devJoao.getConteudosInscritos());
+        Lojas loja2 = new Lojas();
+        loja2.setNome("Esposende");
+        loja2.getPessoalVenda().add(vendedor3);
+        loja2.getPessoalVenda().add(vendedor4);
+        loja2.getPessoalGerencia().add(gerente2);
 
-        devJoao.progredir();
-        System.out.println("Conteudos inscritos de João " + devJoao.getConteudosInscritos());
-        System.out.println("Conteudos concluidos de João " + devJoao.getConteudosConcluidos());
-        System.out.println("XP de João: " + devJoao.calcularTotalXp());
+        System.out.println("Loja1: " +loja1 + "\n");
+        System.out.println("Loja2: " +loja2 + "\n");
 
     }
+
 }
